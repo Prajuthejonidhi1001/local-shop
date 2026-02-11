@@ -16,7 +16,6 @@ from typing import Optional
 from database import user_collection, product_collection
 from models import UserCreate, UserInDB, ProductInDB
 from auth import get_password_hash, verify_password, create_access_token, SECRET_KEY, ALGORITHM
-from generate_icon import create_icon
 
 # Handle missing generate_icon module gracefully
 try:
