@@ -18,6 +18,13 @@ from models import UserCreate, UserInDB, ProductInDB
 from auth import get_password_hash, verify_password, create_access_token, SECRET_KEY, ALGORITHM
 from generate_icon import create_icon
 
+# Handle missing generate_icon module gracefully
+try:
+    from generate_icon import create_icon
+except ImportError:
+    def create_icon():
+        print("⚠️ generate_icon module not found. Skipping icon generation.")
+
 app = FastAPI(title="Local Shop")
 
 app.add_middleware(
